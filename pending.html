@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tasks.css">
+</head>
+<body>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        
+
+        <!-- checkbox -->
+        <div class="main_box">
+            <input type="checkbox" id="check" />
+            <div class="btn_one">
+              <label for="check">
+                <i class="fa-solid fa-bars"></i>
+              </label>
+            </div>
+      
+            <div class="sidebar_menu">
+              <div class="logo">
+                <a href="#">To Do List App</a>
+              </div>
+      
+              <div class="btn_two">
+                <label for="check">
+                  <i class="fa-solid fa-xmark"></i>
+                </label>
+              </div>
+      
+              <div class="menu">
+                <ul>
+                    <li>
+                      <a href="tasks.html">
+                          <i class="fa-solid fa-bars"></i>
+                          Tasks
+                      </a>
+                    </li>
+                    <li>
+                      <a href="pending.html">
+                          <i class="fa-regular fa-clock"></i>
+                          Pending Tasks
+                      </a>
+                    </li>
+                    <li>
+                      <a href="completed.html">
+                          <i class="fa-regular fa-circle-check"></i>
+                          Completed Task
+                      </a>
+                    </li>
+                    <li>
+                      <a href="index.html">
+                          <i class="fa-regular fa-calendar-days"></i>
+                          Add Task
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tasks.html">
+                          <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+                          Search
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <h1>Pending Tasks</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="task-table-body">
+                    <!-- task rows -->
+                </tbody>
+            </table>
+          </div>
+    </section>
+
+    <script>
+        function getTasksFromStorage() {
+            return JSON.parse(localStorage.getItem('tasks')) || [];
+        }
+
+        function renderTaskTable() {
+            const taskTableBody = document.getElementById("task-table-body");
+            taskTableBody.innerHTML = '';
+            const tasks = getTasksFromStorage();
+
+            tasks.filter(task => task.status === 'added').sort((a, b) => new Date(b.date + 'T' + b.time) - new Date(a.date + 'T' + a.time))
+                .forEach((task, index) => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${task.text}</td>
+                        <td>${task.date}</td>
+                        <td>${task.time}</td>
+                        <td>${task.description}</td>
+                        <td>Pending</td>
+                    `;
+                    taskTableBody.appendChild(row);
+                });
+        }
+
+        renderTaskTable();
+    </script>
+</body>
+</html>

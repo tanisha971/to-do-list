@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link id="style-link" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        
+
+        <!-- checkbox -->
+        <div class="main_box">
+            <input type="checkbox" id="check" />
+            <div class="btn_one">
+              <label for="check">
+                <i class="fa-solid fa-bars"></i>
+              </label>
+            </div>
+      
+            <div class="sidebar_menu">
+              <div class="logo">
+                <a href="#">To Do List App</a>
+              </div>
+      
+              <div class="btn_two">
+                <label for="check">
+                  <i class="fa-solid fa-xmark"></i>
+                </label>
+              </div>
+      
+              <div class="menu">
+                <ul>
+                  <li>
+                    <a href="tasks.html">
+                        <i class="fa-solid fa-bars"></i>
+                        Tasks
+                    </a>
+                  </li>
+                  <li>
+                    <a href="pending.html">
+                        <i class="fa-regular fa-clock"></i>
+                        Pending Tasks
+                    </a>
+                  </li>
+                  <li>
+                    <a href="completed.html">
+                        <i class="fa-regular fa-circle-check"></i>
+                        Completed Task
+                    </a>
+                  </li>
+                  <li>
+                    <a href="index.html">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        Add Task
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tasks.html">
+                        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+                        Search
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="delete-all-btn" onclick="deleteAllTasks()">Delete All</button>
+          <div class="container" id="container">
+            <div class="todo-app">
+                <h1>TODO LIST APP</h1>
+                <div class="row">
+                  <input class="inp" id="input-box" type="text" placeholder="Add your Task">
+                  <div class="date-time">
+                    <input class="inp" id="date-box" type="date">
+                    <input class="inp" id="time-box" type="time">
+                    
+                  </div>
+                  <input class="inp" id="desc-box" type="text" placeholder="Task Description">
+                  <button class="btn" onclick="addTask()">Add</button>
+              </div>
+            </div>
+            <div class="list-items">
+                <ul id="list-container">
+                    <!-- list items -->
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

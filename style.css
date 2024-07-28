@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    margin: 0;
+    /* background: linear-gradient(45deg, #49a09d, #5f2c82); */
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+/* section styling */
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #9500ff, #0b304d);
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+}
+
+section .color {
+    position: absolute;
+    filter: blur(150px);
+}
+
+section .color:nth-child(1) {
+    background: #ff359b;
+    width: 600px;
+    height: 600px;
+    top: -350px;
+}
+
+section .color:nth-child(2) {
+    background: #00d2ff;
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    left: 100px;
+}
+
+section .color:nth-child(3) {
+    background: #fffd87;
+    width: 400px;
+    height: 400px;
+    border: 50px;
+    right: 0px;
+}
+
+/* side bar styling */
+
+.main_box {
+    height: 100vh;
+    background-size: cover;
+    z-index: 9999;
+}
+
+.btn_one {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    left: 16px;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.sidebar_menu {
+    position: fixed;
+    left: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: linear-gradient(to right, #ef32d9 0%, #89fffd  51%, #ef32d9  100%);
+    backdrop-filter: blur(1000px);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s linear;
+}
+
+
+.sidebar_menu .logo {
+    position: absolute;
+    width: 100%;
+    line-height: 60px;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    height: 60px;
+}
+
+.sidebar_menu .logo a {
+    position: absolute;
+    left: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sidebar_menu .btn_two i {
+    color: white;
+    font-size: 25px;
+    line-height: 60px;
+    position: absolute;
+    left: 275px;
+    /*opacity: 0;*/
+    cursor: pointer;
+}
+
+.sidebar_menu .menu {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+
+.sidebar_menu .menu li {
+    margin-top: 6px;
+    padding: 14px 20px;
+}
+
+.sidebar_menu .menu i, a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar_menu .menu i {
+    padding-right: 8px;
+}
+
+.sidebar_menu .social_media {
+    position: absolute;
+    left: 25%;
+    bottom: 50px;
+}
+
+.sidebar_menu .social_media i {
+    color: white;
+    opacity: 0.5;
+    padding: 0 5px;
+}
+
+#check {
+    display: none;
+}
+
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.btn_one i:hover {
+    font-size: 40px;
+}
+
+.btn_two i:hover {
+    font-size: 30px;
+}
+
+.sidebar_menu .social_media i:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#check:checked ~ .sidebar_menu {
+    left: 0;
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0;
+}
+
+#check:checked ~ .sidebar_menu .btn_two {
+    opacity: 1;
+}
+
+/* Todo container styling */
+
+#container {
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    border-radius: 4px;
+    width: 330px;
+}
+
+.todo-app {
+    display: block;
+}
+
+.todo-app h1 {
+    /* font-size: 50px; */
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.inp {
+    height: 40px;
+    width: 100%;
+    border: 1px solid white;
+    margin: 10px;
+    padding: 25px 45px;
+    color: black;
+    background-color: #bbf0fc;
+    border-radius: 4px;
+    box-shadow: 0 0 20px #eee;
+}
+
+.date-time {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#date-box, #time-box {
+    height: 40px;
+    width: 155px;
+}
+
+.btn {
+    background-image: linear-gradient(to right, #ef32d9 0%, #89fffd  51%, #ef32d9  100%);
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: 1px solid white;
+    height: 40px;
+    width: 330px;
+    font-weight: 700;
+  }
+
+.btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+#list-container li {
+    list-style: none;
+    margin: 10px 0 10px 0;
+} 
+
+.list-items {
+    padding-bottom: 10px;
+    
+}
+
+/* other styling */
+
+.linethrough {
+    text-decoration: line-through;
+}
+.icons {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+li {
+    cursor: pointer;
+}
+
+#search-icon {
+    top: 0;
+    left: 900px;
+}
+
+#list-container li {
+    list-style: none;
+} 
+
+.delete-all-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    color: red;
+    border: 1px solid white;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.delete-all-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Table styling */
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+
+    #container {
+        background: transparent;
+        border-radius: 4px;
+        width: 270px;
+    }
+
+    .btn {
+        height: 40px;
+        width: 270px;
+        font-weight: 700;
+    }
+    
+    #date-box, #time-box {
+        height: 40px;
+        width: 120px;
+    }
+
+    .delete-all-btn {
+        position: fixed;
+        left: 55px;
+        top: 10px;
+        right: 100px;
+        width: 100px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: transparent;
+        color: red;
+        border: 1px solid white;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+}
+ 
